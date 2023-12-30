@@ -3260,11 +3260,12 @@
         "name": "Ztracker.cc",
         "parser": {
             "infohash": "",
-            "name": "item(tag='a', order=2)",
-            "peers": "item(tag='td', order=8)",
-            "row": "find_once('table', select=('border', '1'), order=1).find_all('tr', start=2)",
-            "seeds": "item(tag='td', order=7)",
-            "size": "item(tag='td', order=11)",
+            "key": "find_once(tag='link', select=('rel', 'alternate')).attr['href'].split('=', 1)[-1]",
+	    "name": "item(tag='a', attribute='title', order=1)",
+            "peers": "item(tag='div', select=('class', 'box_l2'))",
+            "row": "find_all('div', ('class', ['box_nagy', 'box_nagy2']))",
+            "seeds": "item(tag='div', select=('class', 'box_s2'))",
+            "size": "item(tag='div', select=('class', 'box_meret2'))",
             "torrent": "'http://ztracker.cc/download.php?id=%s' % item(tag='a', attribute='href', order=2, divider=('=', 1))"
         },
         "predefined": false,
